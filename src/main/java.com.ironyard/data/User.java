@@ -1,5 +1,7 @@
 package data;
 
+import java.util.List;
+
 /**
  * Created by Tom on 9/27/16.
  */
@@ -9,8 +11,19 @@ public class User {
     private String lastName;
     private String email;
     private String login;
-    private  String password;
-    private String input;
+    private String password;
+    private int id;
+    private List<Blogs> blogs;
+
+    public User(String firstName, String lastName, String email, String login, String password, int id, List<Blogs> blogs) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.login = login;
+        this.password = password;
+        this.id = id;
+        this.blogs = blogs;
+    }
 
     public String getFirstName() {
         return firstName;
@@ -50,5 +63,21 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public List<Blogs> getBlogs() {
+        return blogs;
+    }
+
+    public void setBlogs(List<Blogs> blogs) {
+        this.blogs = blogs;
     }
 }

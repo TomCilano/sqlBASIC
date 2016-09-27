@@ -5,26 +5,31 @@ package data;
  */
 public class sqlText {
 }
-  /*/  CREATE TABLE `User` (
-        `firstName` varchar NOT NULL,
-        `lastName` varchar NOT NULL,
-        `email` varchar NOT NULL,
-        `login` varchar NOT NULL AUTO_INCREMENT,
-        `password` varchar NOT NULL,
-        PRIMARY KEY (`login`)
-        );
+  /*/ CREATE TABLE `User` (
+	`firstName` varchar NOT NULL,
+	`lastName` varchar NOT NULL,
+	`email` varchar NOT NULL,
+	`login` varchar NOT NULL UNIQUE,
+	`password` varchar NOT NULL,
+	`id` int NOT NULL,
+	PRIMARY KEY (`id`)
+);
 
-        CREATE TABLE `blogs` (
-        `title` varchar NOT NULL,
-        `creationDate` varchar NOT NULL
-        );
+CREATE TABLE `blogs` (
+	`title` varchar NOT NULL,
+	`creationDate` varchar NOT NULL,
+	`id` int NOT NULL,
+	PRIMARY KEY (`id`)
+);
 
-        CREATE TABLE `entries` (
-        `title` varchar NOT NULL,
-        `creation date` varchar NOT NULL,
-        `text` varchar NOT NULL
-        );
+CREATE TABLE `entries` (
+	`title` varchar NOT NULL,
+	`creation date` varchar NOT NULL,
+	`text` varchar NOT NULL,
+	`id` int NOT NULL,
+	PRIMARY KEY (`id`)
+);
 
-        ALTER TABLE `blogs` ADD CONSTRAINT `blogs_fk0` FOREIGN KEY (`title`) REFERENCES `User`(`login`);
+ALTER TABLE `blogs` ADD CONSTRAINT `blogs_fk0` FOREIGN KEY (`title`) REFERENCES `User`(`id`);
 
-        ALTER TABLE `entries` ADD CONSTRAINT `entries_fk0` FOREIGN KEY (`text`) REFERENCES `blogs`(`title`);
+ALTER TABLE `entries` ADD CONSTRAINT `entries_fk0` FOREIGN KEY (`text`) REFERENCES `blogs`(`id`);

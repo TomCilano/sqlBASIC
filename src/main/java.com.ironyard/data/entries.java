@@ -7,6 +7,14 @@ public class entries {
     private String title;
     private String text;
     private String creationDate;
+    private int id;
+
+    public entries(String title, String text, String creationDate, int id) {
+        this.title = title;
+        this.text = text;
+        this.creationDate = creationDate;
+        this.id = id;
+    }
 
     public String getTitle() {
         return title;
@@ -31,4 +39,13 @@ public class entries {
     public void setCreationDate(String creationDate) {
         this.creationDate = creationDate;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 }
+
