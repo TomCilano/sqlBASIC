@@ -3,33 +3,31 @@ package data;
 /**
  * Created by Tom on 9/27/16.
  */
-public class sqlText {
+public class  sqlText {
 }
-  /*/ CREATE TABLE `User` (
-	`firstName` varchar NOT NULL,
-	`lastName` varchar NOT NULL,
-	`email` varchar NOT NULL,
-	`login` varchar NOT NULL UNIQUE,
-	`password` varchar NOT NULL,
-	`id` int NOT NULL,
-	PRIMARY KEY (`id`)
-);
+  /*  CREATE TABLE IF NOT EXISTS User (
+usr_id IDENTITY,
+usr_firstName VARCHAR,
+usr_lastName VARCHAR,
+usr_email VARCHAR,
+usr_password VARCHAR,
+ usr_login VARCHAR UNIQUE )
 
-CREATE TABLE `blogs` (
-	`title` varchar NOT NULL,
-	`creationDate` varchar NOT NULL,
-	`id` int NOT NULL,
-	PRIMARY KEY (`id`)
-);
 
-CREATE TABLE `entries` (
-	`title` varchar NOT NULL,
-	`creation date` varchar NOT NULL,
-	`text` varchar NOT NULL,
-	`id` int NOT NULL,
-	PRIMARY KEY (`id`)
-);
 
-ALTER TABLE `blogs` ADD CONSTRAINT `blogs_fk0` FOREIGN KEY (`title`) REFERENCES `User`(`id`);
+CREATE TABLE IF NOT EXISTS Blogs (
+blo_id IDENTITY,
+blo_title VARCHAR,
+blo_date INT,
+blo_use_id INT,
+FOREIGN KEY (blo_usr_id)
+REFERENCES users(usr_id))
 
-ALTER TABLE `entries` ADD CONSTRAINT `entries_fk0` FOREIGN KEY (`text`) REFERENCES `blogs`(`id`);
+CREATE TABLE IF NOT EXISTS entries (
+ent_id IDENTITY,
+ent_title VARCHAR,
+ent_text VARCHAR,
+ent_date INT,
+ent_blo_id INT,
+FOREIGN KEY (ent_blo_id)
+REFERENCES blogs(blo_id))
